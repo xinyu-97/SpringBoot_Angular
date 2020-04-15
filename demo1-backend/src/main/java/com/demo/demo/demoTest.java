@@ -48,7 +48,9 @@ public class demoTest {
         else{
             ArrayList<Character> list = map.get(Character.getNumericValue(input.charAt(0)));
             int newCounter = counter - 1;
-            helper(newCounter, input.substring(1), output + input.charAt(0));
+            if(input.charAt(0) != '0' || input.charAt(0) != '1') {
+                helper(newCounter, input.substring(1), output + input.charAt(0));
+            }
             for(Character c:list){
                 String out = output + c;
                 helper(newCounter, input.substring(1), out);

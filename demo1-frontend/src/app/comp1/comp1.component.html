@@ -1,1 +1,17 @@
-<p>comp1 works!</p>
+<input type="text" [(ngModel)]="input"/>
+<button (click)="submit()">Submit</button>
+
+<p>Total number of combinations: {{output.length}}</p>
+
+<ul class="list">
+    <span><strong>Output</strong></span>
+    <li *ngFor="let l of output | slice: (curPage * pageSize) - pageSize :curPage * pageSize">
+      <span>{{l}}</span>
+    </li>
+</ul>
+<p class="pagination">
+      <button [disabled] ="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+        <span>Page {{curPage}} of {{ numberOfPages }}</span>
+      <button [disabled] = "curPage >= output.length/pageSize" 
+               (click) ="curPage = curPage + 1">NEXT</button>
+</p>
